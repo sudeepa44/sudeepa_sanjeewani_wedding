@@ -9,12 +9,12 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --gold: #c9a84c;
-    --gold-light: #e8c96a;
-    --gold-dark: #8b6914;
-    --cream: #faf6ed;
-    --dark: #1a1208;
-    --dark2: #231a09;
+    --gold: #cfc42f;
+    --gold-light: #c9c555;
+    --gold-dark: #f7d411;
+    --cream: #f5f0ff;
+    --dark: #1a0a2e;
+    --dark2: #240d3a;
     --red-wax: #8b1a1a;
   }
 
@@ -35,7 +35,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    background: radial-gradient(ellipse at 50% 40%, #2d1f05 0%, #120d02 60%, #000 100%);
+    background: radial-gradient(ellipse at 50% 40%, #2d1050 0%, #1a0835 60%, #0d0020 100%);
     overflow: hidden;
   }
 
@@ -73,7 +73,7 @@
   .envelope svg {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 0 18px rgba(201,168,76,0.4));
+    filter: drop-shadow(0 0 18px rgba(167,139,218,,0.4));
   }
 
   .cordially {
@@ -90,15 +90,15 @@
     font-family: 'Great Vibes', cursive;
     font-size: clamp(52px, 13vw, 72px);
     color: var(--gold-light);
-    text-shadow: 0 0 40px rgba(201,168,76,0.5), 0 2px 8px rgba(0,0,0,0.6);
+    text-shadow: 0 0 40px rgba(167,139,218,,0.5), 0 2px 8px rgba(0,0,0,0.6);
     line-height: 1;
     text-align: center;
     animation: shimmer 3s ease-in-out infinite alternate;
   }
 
   @keyframes shimmer {
-    from { text-shadow: 0 0 30px rgba(201,168,76,0.4); }
-    to   { text-shadow: 0 0 60px rgba(201,168,76,0.8), 0 0 100px rgba(232,201,106,0.3); }
+    from { text-shadow: 0 0 30px rgba(167,139,218,,0.4); }
+    to   { text-shadow: 0 0 60px rgba(167,139,218,,0.8), 0 0 100px rgba(232,201,106,0.3); }
   }
 
   .date-venue {
@@ -136,9 +136,9 @@
   .tap-circle span { font-size: 22px; }
 
   @keyframes pulse-ring {
-    0%   { box-shadow: 0 0 0 0 rgba(201,168,76,0.5); }
-    70%  { box-shadow: 0 0 0 16px rgba(201,168,76,0); }
-    100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+    0%   { box-shadow: 0 0 0 0 rgba(167,139,218,,0.5); }
+    70%  { box-shadow: 0 0 0 16px rgba(167,139,218,,0); }
+    100% { box-shadow: 0 0 0 0 rgba(167,139,218,,0); }
   }
 
   .tap-label {
@@ -153,7 +153,7 @@
   #invitation {
     display: none;
     background: var(--cream);
-    color: #2a2012;
+    color: #1a0a2e;
   }
 
   /* Hero couple photo */
@@ -222,7 +222,7 @@
     font-family: 'Cinzel', serif;
     font-size: 10.5px;
     letter-spacing: 1.5px;
-    color: #5a4a2a;
+    color: #4a2a70;
     line-height: 1.9;
     text-transform: uppercase;
   }
@@ -238,7 +238,7 @@
 
   .invite-divider {
     border: none;
-    border-top: 1px dashed rgba(201,168,76,0.4);
+    border-top: 1px dashed rgba(167,139,218,,0.4);
     margin: 18px auto;
     width: 70%;
   }
@@ -247,7 +247,7 @@
     font-family: 'Cinzel', serif;
     font-size: 10px;
     letter-spacing: 2.5px;
-    color: #6b5830;
+    color: #5a3a80;
     text-transform: uppercase;
   }
 
@@ -256,7 +256,7 @@
     font-size: 12px;
     letter-spacing: 3px;
     font-weight: 600;
-    color: #2a2012;
+    color: #1a0a2e;
     text-transform: uppercase;
     margin-top: 6px;
   }
@@ -270,7 +270,7 @@
   }
 
   .name-large.bride { font-size: 68px; margin-top: 20px; }
-  .name-large.amp   { font-size: 48px; color: #8b7040; margin: 4px 0; }
+  .name-large.amp   { font-size: 48px; color: #7a5ab0;margin: 4px 0; }
   .name-large.groom { font-size: 68px; margin-bottom: 20px; }
 
   .date-block {
@@ -282,7 +282,7 @@
     font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #6b5830;
+    color: #5a3a80;
   }
 
   .big-date {
@@ -297,7 +297,7 @@
     font-family: 'Cinzel', serif;
     font-size: 13px;
     letter-spacing: 2px;
-    color: #5a4a2a;
+    color: #4a2a70;
     flex: 1;
     text-align: center;
   }
@@ -309,7 +309,7 @@
     font-family: 'Cinzel', serif;
     font-size: 52px;
     font-weight: 600;
-    color: #2a2012;
+    color: #1a0a2e;
     line-height: 1;
     position: relative;
   }
@@ -321,7 +321,7 @@
     top: 50%;
     width: 40px;
     height: 1px;
-    background: #2a2012;
+    background: #2a0a4a;
   }
   .big-date .day-num::before { right: calc(100% + 8px); }
   .big-date .day-num::after  { left:  calc(100% + 8px); }
@@ -341,14 +341,14 @@
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #2a2012;
+    color: #1a0a2e;
   }
 
   .venue-sub {
     font-family: 'Cinzel', serif;
     font-size: 10px;
     letter-spacing: 1.5px;
-    color: #6b5830;
+    color: #5a3a80;
     text-transform: uppercase;
     margin-top: 4px;
   }
@@ -359,7 +359,7 @@
     gap: 8px;
     margin-top: 20px;
     padding: 14px 28px;
-    background: #2a2012;
+    background: #2a0a4a;
     color: var(--gold-light);
     font-family: 'Cinzel', serif;
     font-size: 10px;
@@ -393,7 +393,7 @@
 
   .programme-card {
     background: #fff;
-    border: 1px solid rgba(201,168,76,0.25);
+    border: 1px solid rgba(167,139,218,,0.25);
     border-top: 3px solid var(--gold);
     border-radius: 2px;
     padding: 24px 20px;
@@ -413,7 +413,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 26px;
     font-style: italic;
-    color: #2a2012;
+    color: #1a0a2e;
     margin-bottom: 16px;
   }
 
@@ -456,7 +456,7 @@
   }
 
   .countdown-box {
-    border: 1px solid rgba(201,168,76,0.35);
+    border: 1px solid rgba(167,139,218,,0.35);
     min-width: 68px;
     padding: 14px 6px 10px;
     text-align: center;
@@ -466,7 +466,7 @@
     font-family: 'Cinzel', serif;
     font-size: 22px;
     font-weight: 500;
-    color: #2a2012;
+    color: #1a0a2e;
     display: block;
   }
 
@@ -489,7 +489,7 @@
 
   /* RSVP */
   .rsvp-section {
-    background: #1a1208;
+    background: #1a0835;
     padding: 48px 24px;
     text-align: center;
   }
@@ -557,17 +557,17 @@
 
   /* Footer */
   .footer-section {
-    background: #120d02;
+    background: #0d0020;
     padding: 40px 24px;
     text-align: center;
-    border-top: 1px solid rgba(201,168,76,0.15);
+    border-top: 1px solid rgba(167,139,218,,0.15);
   }
 
   .footer-tagline {
     font-family: 'Great Vibes', cursive;
     font-size: 36px;
     color: var(--gold-light);
-    text-shadow: 0 0 20px rgba(201,168,76,0.3);
+    text-shadow: 0 0 20px rgba(167,139,218,,0.3);
     margin-bottom: 12px;
   }
 
@@ -632,7 +632,7 @@
     font-size: 14px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: #2a2012;
+    color: #1a0a2e;
     margin-bottom: 6px;
   }
 
@@ -652,7 +652,7 @@
     font-size: 9px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #6b5830;
+    color: #5a3a80;
     margin-bottom: 6px;
   }
 
@@ -661,11 +661,11 @@
   .form-group textarea {
     width: 100%;
     padding: 10px 12px;
-    border: 1px solid rgba(201,168,76,0.4);
+    border: 1px solid rgba(167,139,218,,0.4);
     background: #fff;
     font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
-    color: #2a2012;
+    color: #1a0a2e;
     outline: none;
     transition: border-color 0.2s;
   }
@@ -679,7 +679,7 @@
   .submit-btn {
     width: 100%;
     padding: 14px;
-    background: #2a2012;
+    background: #2a0a4a;
     color: var(--gold-light);
     font-family: 'Cinzel', serif;
     font-size: 11px;
@@ -756,7 +756,7 @@
     <div class="envelope">
       <svg viewBox="0 0 140 96" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- Envelope body -->
-        <rect x="4" y="18" width="132" height="74" rx="2" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,0.07)"/>
+        <rect x="4" y="18" width="132" height="74" rx="2" stroke="#c9a84c" stroke-width="1.5" fill="rgba(167,139,218,,0.07)"/>
         <!-- Flap -->
         <path d="M4 18 L70 58 L136 18" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
         <!-- Bottom folds -->
@@ -803,8 +803,8 @@
         </linearGradient>
       </defs>
       <rect width="400" height="280" fill="url(#photoGrad)"/>
-      <text x="200" y="120" text-anchor="middle" font-family="Cinzel,serif" font-size="13" fill="rgba(201,168,76,0.5)" letter-spacing="3">COUPLE PHOTO</text>
-      <text x="200" y="145" text-anchor="middle" font-family="Cinzel,serif" font-size="10" fill="rgba(201,168,76,0.3)" letter-spacing="2">PLACE YOUR IMAGE HERE</text>
+      <text x="200" y="120" text-anchor="middle" font-family="Cinzel,serif" font-size="13" fill="rgba(167,139,218,,0.5)" letter-spacing="3">COUPLE PHOTO</text>
+      <text x="200" y="145" text-anchor="middle" font-family="Cinzel,serif" font-size="10" fill="rgba(167,139,218,,0.3)" letter-spacing="2">PLACE YOUR IMAGE HERE</text>
     </svg>
     <span class="hero-couple-name">Sanjeewani &amp; Sudeepa</span>
     <div class="photo-dots" style="bottom:32px;">
@@ -914,7 +914,7 @@
   <!-- Footer -->
   <div class="footer-section">
     <p class="footer-tagline">Together forever begins here</p>
-    <p class="footer-names">Sanjeewani &amp; Sudeepa · 7th May 2026</p>
+    <p class="footer-names">Sanjeewani &amp; Sudeepa · 11th May 2027</p>
     <p class="footer-venue">Hotel Peace Inn, Welimada</p>
   </div>
 
@@ -925,7 +925,7 @@
   <div class="modal-box">
     <button class="modal-close" id="modalClose">✕</button>
     <p class="modal-title">RSVP</p>
-    <p class="modal-subtitle">Kindly reply by 1st May 2026</p>
+    <p class="modal-subtitle">Kindly reply by 11st February 2027</p>
 
     <div class="form-group">
       <label>Your Name</label>
