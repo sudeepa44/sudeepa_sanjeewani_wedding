@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation – Sanjeewani & Sudeepa</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gold-dark: #8b6914;
+    --cream: #faf6ed;
+    --dark: #1a1208;
+    --dark2: #231a09;
+    --red-wax: #8b1a1a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--dark);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ── LANDING PAGE ── */
+  #landing {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 40%, #2d1f05 0%, #120d02 60%, #000 100%);
+    overflow: hidden;
+  }
+
+  /* Particle dots */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--gold-light);
+    opacity: 0;
+    animation: twinkle var(--dur) ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50%       { opacity: 0.7; transform: scale(1); }
+  }
+
+  .envelope-wrap {
+    animation: floatUp 3s ease-in-out infinite alternate;
+    margin-bottom: 28px;
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(0px); }
+    to   { transform: translateY(-10px); }
+  }
+
+  .envelope {
+    width: 140px;
+    height: 96px;
+    position: relative;
+  }
+
+  .envelope svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 18px rgba(201,168,76,0.4));
+  }
+
+  .cordially {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    opacity: 0.8;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .couple-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(52px, 13vw, 72px);
+    color: var(--gold-light);
+    text-shadow: 0 0 40px rgba(201,168,76,0.5), 0 2px 8px rgba(0,0,0,0.6);
+    line-height: 1;
+    text-align: center;
+    animation: shimmer 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes shimmer {
+    from { text-shadow: 0 0 30px rgba(201,168,76,0.4); }
+    to   { text-shadow: 0 0 60px rgba(201,168,76,0.8), 0 0 100px rgba(232,201,106,0.3); }
+  }
+
+  .date-venue {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    opacity: 0.65;
+    margin-top: 14px;
+    text-transform: uppercase;
+  }
+
+  .tap-btn {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .tap-btn:hover { transform: scale(1.05); }
+
+  .tap-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  .tap-circle span { font-size: 22px; }
+
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0 rgba(201,168,76,0.5); }
+    70%  { box-shadow: 0 0 0 16px rgba(201,168,76,0); }
+    100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+  }
+
+  .tap-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    opacity: 0.7;
+  }
+
+  /* ── MAIN CONTENT ── */
+  #invitation {
+    display: none;
+    background: var(--cream);
+    color: #2a2012;
+  }
+
+  /* Hero couple photo */
+  .hero-photo {
+    width: 100%;
+    height: 60vw;
+    max-height: 380px;
+    background: linear-gradient(160deg, #3a3028, #1a1208);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .hero-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(26,18,8,0.7) 100%);
+  }
+
+  .hero-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-couple-name {
+    position: absolute;
+    bottom: 20px;
+    z-index: 1;
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    color: var(--gold-light);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  }
+
+  .photo-dots {
+    position: absolute;
+    bottom: 8px;
+    z-index: 2;
+    display: flex;
+    gap: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .photo-dots span {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+  .photo-dots span.active { opacity: 1; }
+
+  /* Formal invitation card */
+  .invite-card {
+    background: var(--cream);
+    padding: 40px 28px 32px;
+    text-align: center;
+    position: relative;
+  }
+
+  .families {
+    font-family: 'Cinzel', serif;
+    font-size: 10.5px;
+    letter-spacing: 1.5px;
+    color: #5a4a2a;
+    line-height: 1.9;
+    text-transform: uppercase;
+  }
+
+  .together-with {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #8b7040;
+    margin: 4px 0;
+    letter-spacing: 1px;
+  }
+
+  .invite-divider {
+    border: none;
+    border-top: 1px dashed rgba(201,168,76,0.4);
+    margin: 18px auto;
+    width: 70%;
+  }
+
+  .honour-text {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: #6b5830;
+    text-transform: uppercase;
+  }
+
+  .daughter-son {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #2a2012;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .name-large {
+    font-family: 'Great Vibes', cursive;
+    color: var(--gold);
+    display: block;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    line-height: 1;
+  }
+
+  .name-large.bride { font-size: 68px; margin-top: 20px; }
+  .name-large.amp   { font-size: 48px; color: #8b7040; margin: 4px 0; }
+  .name-large.groom { font-size: 68px; margin-bottom: 20px; }
+
+  .date-block {
+    margin: 14px 0 20px;
+  }
+
+  .on-thursday {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #6b5830;
+  }
+
+  .big-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 8px 0 4px;
+  }
+
+  .big-date .month, .big-date .year {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #5a4a2a;
+    flex: 1;
+    text-align: center;
+  }
+
+  .big-date .month { text-align: right; }
+  .big-date .year  { text-align: left; }
+
+  .big-date .day-num {
+    font-family: 'Cinzel', serif;
+    font-size: 52px;
+    font-weight: 600;
+    color: #2a2012;
+    line-height: 1;
+    position: relative;
+  }
+
+  .big-date .day-num::before,
+  .big-date .day-num::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 1px;
+    background: #2a2012;
+  }
+  .big-date .day-num::before { right: calc(100% + 8px); }
+  .big-date .day-num::after  { left:  calc(100% + 8px); }
+
+  .at-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #8b7040;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .venue-name {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #2a2012;
+  }
+
+  .venue-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #6b5830;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .view-location-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 14px 28px;
+    background: #2a2012;
+    color: var(--gold-light);
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .view-location-btn:hover {
+    background: var(--gold-dark);
+    border-color: var(--gold);
+  }
+
+  /* Wedding day programme */
+  .section-cream {
+    background: var(--cream);
+    padding: 40px 24px;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .programme-card {
+    background: #fff;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-top: 3px solid var(--gold);
+    border-radius: 2px;
+    padding: 24px 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+
+  .prog-date {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .prog-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-style: italic;
+    color: #2a2012;
+    margin-bottom: 16px;
+  }
+
+  .prog-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .prog-icon {
+    font-size: 16px;
+    color: var(--gold);
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .prog-item-text strong { font-weight: 600; }
+
+  /* Countdown */
+  .countdown-section {
+    text-align: center;
+    padding: 30px 24px;
+    background: var(--cream);
+  }
+
+  .countdown-title {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .countdown-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .countdown-box {
+    border: 1px solid rgba(201,168,76,0.35);
+    min-width: 68px;
+    padding: 14px 6px 10px;
+    text-align: center;
+  }
+
+  .countdown-num {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #2a2012;
+    display: block;
+  }
+
+  .countdown-label {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #8b7040;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 4px;
+  }
+
+  .countdown-sep {
+    font-size: 20px;
+    color: var(--gold);
+    align-self: center;
+    padding-bottom: 8px;
+  }
+
+  /* RSVP */
+  .rsvp-section {
+    background: #1a1208;
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .rsvp-star {
+    color: var(--gold-dark);
+    font-size: 18px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .rsvp-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .rsvp-line::before, .rsvp-line::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--gold-dark);
+    opacity: 0.5;
+  }
+
+  .rsvp-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 26px;
+    letter-spacing: 8px;
+    color: var(--gold-light);
+    text-transform: uppercase;
+  }
+
+  .rsvp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+    padding: 16px 32px;
+    border: 1.5px solid var(--gold);
+    background: transparent;
+    color: var(--gold-light);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .rsvp-btn:hover { background: var(--gold-dark); border-color: var(--gold-light); }
+
+  .rsvp-note {
+    margin-top: 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  /* Footer */
+  .footer-section {
+    background: #120d02;
+    padding: 40px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .footer-tagline {
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    color: var(--gold-light);
+    text-shadow: 0 0 20px rgba(201,168,76,0.3);
+    margin-bottom: 12px;
+  }
+
+  .footer-names {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .footer-venue {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--gold-dark);
+    opacity: 0.7;
+  }
+
+  /* RSVP modal */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal-box {
+    background: var(--cream);
+    width: 100%;
+    max-width: 400px;
+    padding: 36px 28px;
+    position: relative;
+    border-top: 3px solid var(--gold);
+    animation: slideIn 0.3s ease;
+  }
+
+  @keyframes slideIn {
+    from { transform: translateY(30px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 12px; right: 16px;
+    background: none; border: none;
+    font-size: 22px;
+    color: #8b7040;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .modal-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #2a2012;
+    margin-bottom: 6px;
+  }
+
+  .modal-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #8b7040;
+    margin-bottom: 22px;
+  }
+
+  .form-group { margin-bottom: 16px; }
+
+  .form-group label {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6b5830;
+    margin-bottom: 6px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(201,168,76,0.4);
+    background: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: #2a2012;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+
+  .form-group textarea { resize: none; height: 70px; }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #2a2012;
+    color: var(--gold-light);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 4px;
+  }
+
+  .submit-btn:hover { background: var(--gold-dark); }
+
+  /* scroll indicator */
+  .scroll-indicator {
+    text-align: center;
+    padding: 16px;
+    background: var(--cream);
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+  }
+
+  .scroll-arrow { display: block; font-size: 14px; color: var(--gold); margin-bottom: 4px; animation: bounce 1.5s ease-in-out infinite; }
+  @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+
+  /* Ring image */
+  .ring-img {
+    position: absolute;
+    top: 12px; right: 12px;
+    font-size: 48px;
+    opacity: 0.9;
+  }
+
+  /* transition */
+  #landing.fade-out { animation: fadeOut 0.6s forwards; }
+  @keyframes fadeOut { to { opacity: 0; pointer-events: none; } }
+
+  #invitation.fade-in { animation: fadeIn 0.7s ease forwards; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+</style>
+</head>
+<body>
+
+<!-- ════════════ LANDING PAGE ════════════ -->
+<section id="landing">
+  <!-- Particles -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const landing = document.getElementById('landing');
+      const positions = [
+        [15,20],[25,60],[70,15],[80,40],[40,75],[60,85],[10,50],[90,70],
+        [35,30],[55,65],[20,80],[75,25],[45,10],[85,55],[5,35],[95,45],
+        [30,90],[65,5],[50,50],[12,70]
+      ];
+      positions.forEach(([left, top], i) => {
+        const dot = document.createElement('div');
+        dot.className = 'particle';
+        const size = Math.random() * 4 + 2;
+        dot.style.cssText = `
+          left:${left}%; top:${top}%;
+          width:${size}px; height:${size}px;
+          --dur:${2 + Math.random()*3}s;
+          --delay:${Math.random()*3}s;
+        `;
+        landing.appendChild(dot);
+      });
+    });
+  </script>
+
+  <div class="envelope-wrap">
+    <div class="envelope">
+      <svg viewBox="0 0 140 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Envelope body -->
+        <rect x="4" y="18" width="132" height="74" rx="2" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,0.07)"/>
+        <!-- Flap -->
+        <path d="M4 18 L70 58 L136 18" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+        <!-- Bottom folds -->
+        <path d="M4 92 L52 58" stroke="#c9a84c" stroke-width="1" opacity="0.5"/>
+        <path d="M136 92 L88 58" stroke="#c9a84c" stroke-width="1" opacity="0.5"/>
+        <!-- Wax seal -->
+        <circle cx="70" cy="65" r="16" fill="#7a1515"/>
+        <circle cx="70" cy="65" r="14" fill="#8b1a1a"/>
+        <!-- Heart in seal -->
+        <path d="M70 72 C70 72 58 63 58 57 C58 53.5 60.5 51 64 51 C66.5 51 68.5 52.5 70 54.5 C71.5 52.5 73.5 51 76 51 C79.5 51 82 53.5 82 57 C82 63 70 72 70 72Z" fill="#f5c0c0" opacity="0.9"/>
+      </svg>
+    </div>
+  </div>
+
+  <p class="cordially">You Are Cordially Invited</p>
+
+  <h1 class="couple-name">Sanjeewani &amp; Sudeepa</h1>
+
+  <p class="date-venue">11th March 2027 &nbsp;·&nbsp; Hotel Peace Inn &nbsp;·&nbsp; Welimada</p>
+
+  <div class="tap-btn" id="tapBtn" role="button" aria-label="Open invitation">
+    <div class="tap-circle"><span>👆</span></div>
+    <span class="tap-label">Tap To Open</span>
+  </div>
+</section>
+
+<!-- ════════════ MAIN INVITATION ════════════ -->
+<section id="invitation">
+
+  <!-- Scroll hint -->
+  <div class="scroll-indicator">
+    <span class="scroll-arrow">↓</span>
+    Scroll
+  </div>
+
+  <!-- Hero couple photo (placeholder) -->
+  <div class="hero-photo" id="heroPhoto">
+    <!-- Replace src with actual couple photo -->
+    <svg width="100%" height="100%" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;">
+      <defs>
+        <linearGradient id="photoGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3a3028"/>
+          <stop offset="100%" stop-color="#1a1208"/>
+        </linearGradient>
+      </defs>
+      <rect width="400" height="280" fill="url(#photoGrad)"/>
+      <text x="200" y="120" text-anchor="middle" font-family="Cinzel,serif" font-size="13" fill="rgba(201,168,76,0.5)" letter-spacing="3">COUPLE PHOTO</text>
+      <text x="200" y="145" text-anchor="middle" font-family="Cinzel,serif" font-size="10" fill="rgba(201,168,76,0.3)" letter-spacing="2">PLACE YOUR IMAGE HERE</text>
+    </svg>
+    <span class="hero-couple-name">Sanjeewani &amp; Sudeepa</span>
+    <div class="photo-dots" style="bottom:32px;">
+      <span class="active"></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- Formal invitation card -->
+  <div class="invite-card">
+    <div class="ring-img">💍</div>
+
+    <p class="families">Mr. &amp; Mrs. Weerasinghe</p>
+    <p class="together-with">together with</p>
+    <p class="families">Mr. &amp; Mrs. ............</p>
+
+    <hr class="invite-divider">
+
+    <p class="honour-text">Request the Honour of the Presence of</p>
+
+    <hr class="invite-divider">
+
+    <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:#6b5830;text-transform:uppercase;margin-bottom:4px;">
+      To Celebrate the Marriage of Their Beloved
+    </p>
+    <p class="daughter-son">Daughter &amp; Son</p>
+
+    <hr class="invite-divider">
+
+    <span class="name-large bride">Sanjeewani</span>
+    <span class="name-large amp">&amp;</span>
+    <span class="name-large groom">Sudeepa</span>
+
+    <hr class="invite-divider">
+
+    <div class="date-block">
+      <p class="on-thursday">On Thursday</p>
+      <div class="big-date">
+        <span class="month">March</span>
+        <span class="day-num">11</span>
+        <span class="year">2027</span>
+      </div>
+    </div>
+
+    <p class="at-label">At</p>
+    <p class="venue-name">Hotel Peace Inn</p>
+    <p class="venue-sub">(Grand Imperial Ballroom)</p>
+    <p class="venue-sub" style="margin-top:2px;">Nuwaraeliya Road, Welimada.</p>
+
+    <a href="https://maps.google.com" target="_blank" class="view-location-btn">
+      📍 &nbsp;View Location
+    </a>
+  </div>
+
+  <!-- Wedding Day Programme -->
+  <div class="section-cream">
+    <p class="section-title">Wedding Day Programme</p>
+    <div class="programme-card">
+      <p class="prog-date">Thursday · 11th March 2027</p>
+      <p class="prog-title">Wedding Celebrations</p>
+      <div class="prog-item">
+        <span class="prog-icon">🕐</span>
+        <p class="prog-item-text"><strong>Wedding Festivities</strong> — 10.00 A.M. to 3.30 P.M.</p>
+      </div>
+      <div class="prog-item">
+        <span class="prog-icon">🕐</span>
+        <p class="prog-item-text"><strong>Poruwa Ceremony</strong> — Auspicious Time 09.56 A.M.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Countdown -->
+  <div class="countdown-section">
+    <p class="countdown-title">Counting Down to the Big Day</p>
+    <div class="countdown-boxes">
+      <div class="countdown-box">
+        <span class="countdown-num" id="cdDays">--</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <span class="countdown-sep">·</span>
+      <div class="countdown-box">
+        <span class="countdown-num" id="cdHours">--</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <span class="countdown-sep">·</span>
+      <div class="countdown-box">
+        <span class="countdown-num" id="cdMins">--</span>
+        <span class="countdown-label">Mins</span>
+      </div>
+      <span class="countdown-sep">·</span>
+      <div class="countdown-box">
+        <span class="countdown-num" id="cdSecs">--</span>
+        <span class="countdown-label">Secs</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RSVP -->
+  <div class="rsvp-section">
+    <span class="rsvp-star">★</span>
+    <div class="rsvp-line">
+      <span class="rsvp-heading">RSVP</span>
+    </div>
+    <button class="rsvp-btn" id="rsvpBtn">→ &nbsp; RSVP Now</button>
+    <p class="rsvp-note">RSVP Required for Regrets Only</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-section">
+    <p class="footer-tagline">Together forever begins here</p>
+    <p class="footer-names">Sanjeewani &amp; Sudeepa · 7th May 2026</p>
+    <p class="footer-venue">Hotel Peace Inn, Welimada</p>
+  </div>
+
+</section>
+
+<!-- ════════════ RSVP MODAL ════════════ -->
+<div class="modal-overlay" id="rsvpModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">✕</button>
+    <p class="modal-title">RSVP</p>
+    <p class="modal-subtitle">Kindly reply by 1st May 2026</p>
+
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" placeholder="Full name">
+    </div>
+    <div class="form-group">
+      <label>Number of Guests</label>
+      <select>
+        <option>1 guest</option>
+        <option>2 guests</option>
+        <option>3 guests</option>
+        <option>4 guests</option>
+        <option>5+ guests</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Attendance</label>
+      <select>
+        <option>Joyfully accepts</option>
+        <option>Regretfully declines</option>
+      </select>
+    </div>
+    <button class="submit-btn" id="submitRsvp">Send RSVP</button>
+  </div>
+</div>
+
+<script>
+  // ── Open invitation
+  document.getElementById('tapBtn').addEventListener('click', () => {
+    const landing = document.getElementById('landing');
+    const inv = document.getElementById('invitation');
+    landing.classList.add('fade-out');
+    setTimeout(() => {
+      landing.style.display = 'none';
+      inv.style.display = 'block';
+      inv.classList.add('fade-in');
+      window.scrollTo(0, 0);
+    }, 600);
+  });
+
+  // ── Countdown timer
+  function updateCountdown() {
+    const target = new Date('2027-03-11T09:56:00');
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) {
+      ['Days','Hours','Mins','Secs'].forEach(u =>
+        document.getElementById('cd'+u).textContent = '00'
+      );
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cdDays').textContent  = String(d).padStart(2,'0');
+    document.getElementById('cdHours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cdMins').textContent  = String(m).padStart(2,'0');
+    document.getElementById('cdSecs').textContent  = String(s).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ── RSVP modal
+  const modal = document.getElementById('rsvpModal');
+  document.getElementById('rsvpBtn').addEventListener('click', () => modal.classList.add('open'));
+  document.getElementById('modalClose').addEventListener('click', () => modal.classList.remove('open'));
+  modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+
+  document.getElementById('submitRsvp').addEventListener('click', () => {
+    alert('Thank you! Your RSVP has been received. 💛');
+    modal.classList.remove('open');
+  });
+</script>
+</body>
+</html>
