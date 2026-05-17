@@ -999,36 +999,40 @@
     <div id="rsvpForm">
       <h3>RSVP</h3>
       <p>Please fill in your details below</p>
-      <div class="form-row">
-        <label>Full Name</label>
-        <input type="text" placeholder="Your name">
-      </div>
-      <div class="form-row">
-        <label>Email Address</label>
-        <input type="email" placeholder="your@email.com">
-      </div>
-      <div class="form-row">
-        <label>Attending?</label>
-        <select>
-          <option value="">— Select —</option>
-          <option>Joyfully Accepts</option>
-          <option>Regretfully Declines</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <label>Number of Guests</label>
-        <select>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4+</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <label>Message for the Couple</label>
-        <textarea placeholder="Any dietary needs or a warm note for Sanjeewani & Sudeepa…"></textarea>
-      </div>
-      <button class="submit-btn" onclick="submitRsvp()">Send RSVP</button>
+      <form name="rsvp" netlify netlify-honeypot="bot-field" id="netlifyForm">
+        <input type="hidden" name="form-name" value="rsvp">
+        <p style="display:none;"><input name="bot-field"></p>
+        <div class="form-row">
+          <label for="f-name">Full Name</label>
+          <input id="f-name" type="text" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-row">
+          <label for="f-email">Email Address</label>
+          <input id="f-email" type="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-row">
+          <label for="f-attending">Attending?</label>
+          <select id="f-attending" name="attending" required>
+            <option value="">— Select —</option>
+            <option value="Joyfully Accepts">Joyfully Accepts</option>
+            <option value="Regretfully Declines">Regretfully Declines</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="f-guests">Number of Guests</label>
+          <select id="f-guests" name="guests">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4+">4+</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="f-message">Message for the Couple</label>
+          <textarea id="f-message" name="message" placeholder="Any dietary needs or a warm note for Sanjeewani & Sudeepa…"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send RSVP</button>
+      </form>
     </div>
     <div class="success-msg" id="successMsg">
       <div class="check">💜</div>
@@ -1090,11 +1094,26 @@ function closeRsvp() {
   document.body.style.overflow = '';
 }
 
-function submitRsvp() {
-  document.getElementById('rsvpForm').style.display = 'none';
-  document.getElementById('successMsg').style.display = 'block';
-  setTimeout(closeRsvp, 3200);
-}
+document.getElementById('netlifyForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const form = this;
+  const data = new FormData(form);
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(data).toString()
+  })
+  .then(() => {
+    document.getElementById('rsvpForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+    form.reset();
+    setTimeout(closeRsvp, 3500);
+  })
+  .catch(() => {
+    alert('Something went wrong. Please try again.');
+  });
+});
 
 document.getElementById('rsvpModal').addEventListener('click', function(e) {
   if (e.target === this) closeRsvp();
